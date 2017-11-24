@@ -15,7 +15,6 @@
     "jest": "^21.2.1",
     "jest-serializer-vue": "^0.3.0",
     "vue": "^2.5.8",
-    "vue-server-renderer": "^2.5.8",
     "vue-template-compiler": "^2.5.8",
     "vue-test-utils": "^1.0.0-beta.6"
   }

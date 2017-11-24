@@ -1,5 +1,4 @@
 import Vue from 'vue';
-import {createRenderer} from 'vue-server-renderer';
 import {mount} from 'vue-test-utils';
 
 import plugin from '../index';
