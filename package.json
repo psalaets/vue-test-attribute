@@ -4,15 +4,23 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "prebuild": "npm run clean",
+    "build": "npm run build:commonjs && npm run build:es",
+    "build:commonjs": "BABEL_ENV=commonjs babel index.js --out-dir commonjs",
+    "build:es": "BABEL_ENV=es babel index.js --out-dir es",
+    "clean": "rimraf es commonjs",
+    "prepubilshOnly": "npm run test && npm run build"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["vue", "test", "attribute"],
+  "author": "Paul Salaets <psalaets@gmail.com>",
+  "license": "MIT",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-jest": "^21.2.0",
     "babel-preset-env": "^1.6.1",
     "jest": "^21.2.1",
+    "rimraf": "^2.6.2",
     "vue": "^2.5.8",
     "vue-template-compiler": "^2.5.8",
     "vue-test-utils": "^1.0.0-beta.6"

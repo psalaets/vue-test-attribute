@@ -5,7 +5,46 @@
   "env": {
     "test": {
       "presets": [
-        ["env", {"targets": {"node": 8}}]
+        [
+          "env",
+          {
+            "targets": {
+              "node": 8
+            }
+          }
+        ]
+      ]
+    },
+    "commonjs": {
+      "presets": [
+        [
+          "env",
+          {
+            "targets": {
+              "browsers": [
+                "last 2 versions",
+                "ie > 10"
+              ]
+            },
+            "modules": "commonjs"
+          }
+        ]
+      ]
+    },
+    "ejs": {
+      "presets": [
+        [
+          "env",
+          {
+            "targets": {
+              "browsers": [
+                "last 2 versions",
+                "ie > 10"
+              ]
+            },
+            "modules": false
+          }
+        ]
       ]
     }
   }
