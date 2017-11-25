@@ -1,6 +1,6 @@
 # vue-test-attribute
 
-Vue 2 directive that adds data-test attribute to elements
+Vue 2 directive that adds `data-test` attribute to elements
 
 ## Install
 
