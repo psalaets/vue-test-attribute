@@ -12,6 +12,11 @@
     "clean": "rimraf es commonjs",
     "prepubilshOnly": "npm run test && npm run build"
   },
+  "homepage": "https://github.com/psalaets/vue-test-attribute",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/psalaets/vue-test-attribute.git"
+  },
   "keywords": ["vue", "test", "attribute"],
   "author": "Paul Salaets <psalaets@gmail.com>",
   "license": "MIT",
