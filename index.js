@@ -1,10 +1,14 @@
 const directive = {
   bind(el, binding) {
-    setAttribute(el, binding.value);
+    if (process.env.NODE_ENV !== 'production') {
+      setAttribute(el, binding.value);
+    }
   },
   update(el, binding) {
-    if (binding.value !== binding.oldValue) {
-      setAttribute(el, binding.value);
+    if (process.env.NODE_ENV !== 'production') {
+      if (binding.value !== binding.oldValue) {
+        setAttribute(el, binding.value);
+      }
     }
   }
 };

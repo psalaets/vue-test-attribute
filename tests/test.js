@@ -5,6 +5,26 @@ import plugin from '../index';
 
 Vue.use(plugin);
 
+describe('in production', () => {
+  beforeEach(() => {
+    process.env.NODE_ENV = 'production';
+  });
+
+  afterEach(() => {
+    process.env.NODE_ENV = undefined;
+  });
+
+  it('does not add attribute to element', () => {
+    const wrapper = mount(component(), {
+      propsData: {
+        name: 'person'
+      }
+    });
+
+    expect(wrapper.element.hasAttribute('data-test')).toBe(false);
+  });
+});
+
 describe('given a string value', () => {
   it('sets attribute to value', () => {
     const wrapper = mount(component(), {

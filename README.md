@@ -79,6 +79,10 @@ const el = document.querySelector('[data-test~="address"]');
 assert(...);
 ```
 
+## Production builds
+
+If `process.env.NODE_ENV === "production"` this directive is a no-op. No `data-test` attributes will be added.
+
 ## FAQ
 
 ### Q1: Why not just find elements by content/class/id/xpath in tests?
@@ -96,6 +100,7 @@ A2: That will work fine but with this directive
 - If you typo the directive name Vue will report an error
 - It's easier to ensure uniformity in the `data-` attribute used
 - Arrays are joined for you
+- `data-test` attributes won't be added in production builds
 
 ## License
 
