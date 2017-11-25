@@ -14,7 +14,7 @@ npm install vue-test-attribute
 
 ```js
 import Vue from 'vue';
-import vueTestAttribute from 'vue-test-attriibute';
+import vueTestAttribute from 'vue-test-attribute';
 
 Vue.use(vueTestAttribute);
 ```
