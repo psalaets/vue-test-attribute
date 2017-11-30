@@ -1,3 +1,11 @@
+export default {
+  install
+};
+
+function install(Vue) {
+  Vue.directive('test', directive);
+}
+
 function directive(el, binding) {
   if (process.env.NODE_ENV !== 'production') {
     if (binding.value !== binding.oldValue) {
@@ -19,11 +27,3 @@ function evaluateValue(value) {
     ? value.join(' ')
     : value;
 }
-
-function install(Vue) {
-  Vue.directive('test', directive);
-}
-
-export default {
-  install
-};
