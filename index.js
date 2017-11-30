@@ -1,17 +1,10 @@
-const directive = {
-  bind(el, binding) {
-    if (process.env.NODE_ENV !== 'production') {
+function directive(el, binding) {
+  if (process.env.NODE_ENV !== 'production') {
+    if (binding.value !== binding.oldValue) {
       modifyElement(el, binding.value);
     }
-  },
-  update(el, binding) {
-    if (process.env.NODE_ENV !== 'production') {
-      if (binding.value !== binding.oldValue) {
-        modifyElement(el, binding.value);
-      }
-    }
   }
-};
+}
 
 function modifyElement(el, value) {
   if (value === false) {
