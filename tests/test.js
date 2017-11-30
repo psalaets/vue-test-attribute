@@ -77,6 +77,32 @@ describe('given array value', () => {
   });
 });
 
+describe('given false', () => {
+  it('does not set attribute', () => {
+    const wrapper = mount(component(), {
+      propsData: {
+        name: false
+      }
+    });
+
+    expect(wrapper.element.hasAttribute('data-test')).toBe(false);
+  });
+
+  it('removes existing attribute', () => {
+    const wrapper = mount(component(), {
+      propsData: {
+        name: 'person'
+      }
+    });
+
+    wrapper.setProps({
+      name: false
+    })
+
+    expect(wrapper.element.hasAttribute('data-test')).toBe(false);
+  })
+});
+
 function component() {
   return {
     template: `<div v-test="name"></div>`,
