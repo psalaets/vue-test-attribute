@@ -18,6 +18,10 @@
     "type": "git",
     "url": "https://github.com/psalaets/vue-test-attribute.git"
   },
+  "files": [
+    "commonjs",
+    "es"
+  ],
   "keywords": ["vue", "test", "attribute"],
   "author": "Paul Salaets <psalaets@gmail.com>",
   "license": "MIT",
