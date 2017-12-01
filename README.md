@@ -105,7 +105,7 @@ assert(...);
 
 ## Settings
 
-Optional object of settings
+You can pass an object of settings to `Vue.use()` to control this directive's behavior.
 
 ```js
 const settings = {...};
