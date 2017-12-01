@@ -2,16 +2,20 @@ export default {
   install
 };
 
-function install(Vue) {
-  Vue.directive('test', directive);
+function install(Vue, options = {}) {
+  const production = options.production !== undefined
+    ? options.production
+    : process.env.NODE_ENV === 'production';
+
+  Vue.directive('test', createDirective(production));
 }
 
-function directive(el, binding) {
-  if (process.env.NODE_ENV !== 'production') {
-    if (binding.value !== binding.oldValue) {
+function createDirective(production) {
+  return function directive(el, binding) {
+    if (!production && binding.value !== binding.oldValue) {
       modifyElement(el, binding.value);
     }
-  }
+  };
 }
 
 function modifyElement(el, value) {

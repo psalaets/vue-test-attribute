@@ -5,7 +5,9 @@
   "main": "commonjs/index.js",
   "module": "es/index.js",
   "scripts": {
-    "test": "jest",
+    "test": "npm run test:main && npm run test:prod-flag",
+    "test:main": "jest __tests__/test.js",
+    "test:prod-flag": "jest __tests__/production-flag-true.js && jest __tests__/production-flag-false.js && jest __tests__/production-flag-not-set.js",
     "prebuild": "npm run clean",
     "build": "npm run build:commonjs && npm run build:es",
     "build:commonjs": "BABEL_ENV=commonjs babel index.js --out-dir commonjs",
