@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file.
 
 - Accept settings during directive install
 - `production` setting that defaults based on `process.env.NODE_ENV`
-- When directive value is `false` attribute is not added to or removed from element
+- When directive value is `false` attribute is not added to element. If already there it will be removed from element.
 
 ### Fixed
 
