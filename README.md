@@ -71,7 +71,7 @@ renders
 <div data-test="address address-1"></div>
 ```
 
-### 2a. Use with `false` value
+### 2d. Use with `false` value
 
 ```html
 <div v-test="testId"></div>
@@ -91,9 +91,11 @@ renders
 <div></div>
 ```
 
-(`data-test` not added to element)
+(`data-test` is not added to element)
 
 ### 3. Find element in a test
+
+Using an [attribute selector](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors).
 
 ```js
 const el = document.querySelector('[data-test~="address"]');
