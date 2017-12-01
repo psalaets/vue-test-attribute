@@ -14,9 +14,9 @@ npm install vue-test-attribute
 
 ```js
 import Vue from 'vue';
-import vueTestAttribute from 'vue-test-attribute';
+import VueTestAttribute from 'vue-test-attribute';
 
-Vue.use(vueTestAttribute);
+Vue.use(VueTestAttribute);
 ```
 
 ### 2a. Use with string literal
@@ -71,6 +71,28 @@ renders
 <div data-test="address address-1"></div>
 ```
 
+### 2a. Use with `false` value
+
+```html
+<div v-test="testId"></div>
+```
+
+```js
+data() {
+  return {
+    testId: false
+  };
+}
+```
+
+renders
+
+```html
+<div></div>
+```
+
+(`data-test` not added to element)
+
 ### 3. Find element in a test
 
 ```js
@@ -79,9 +101,23 @@ const el = document.querySelector('[data-test~="address"]');
 assert(...);
 ```
 
-## Production builds
+## Settings
 
-If `process.env.NODE_ENV === "production"` this directive is a no-op. No `data-test` attributes will be added.
+Optional object of settings
+
+```js
+const settings = {...};
+
+Vue.use(VueTestAttribute, settings);
+```
+
+### settings.production
+
+If `true`, this directive is a no-op. The `data-test` attributes are not added.
+
+If `false`, the `data-test` attributes are added.
+
+If not set, defaults to `process.env.NODE_ENV === "production"`
 
 ## FAQ
 
