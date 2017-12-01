@@ -115,11 +115,11 @@ Vue.use(VueTestAttribute, settings);
 
 ### settings.production
 
-If `true`, this directive is a no-op. The `data-test` attributes are not added.
-
-If `false`, the `data-test` attributes are added.
-
-If not set, defaults to `process.env.NODE_ENV === "production"`
+| Value | Behavior |
+|-------|----------|
+| `false` | `data-test` attributes will be added |
+| `true` | `data-test` attributes will *not* be added |
+| (not set) | Behavior based on value of `process.env.NODE_ENV === "production"` |
 
 ## FAQ
 
