@@ -83,6 +83,25 @@ describe('given false', () => {
   })
 });
 
+describe('directly on a component', () => {
+  it('adds attribute to component\'s root element', () => {
+    const ChildComponent = {
+      render: createElement => createElement('div')
+    };
+
+    const ParentComponent = {
+      template: `<child-component v-test="'address'" />`,
+      components: {
+        'child-component': ChildComponent
+      }
+    };
+
+    const wrapper = mount(ParentComponent);
+
+    expect(wrapper.element.getAttribute('data-test')).toBe('address');
+  });
+});
+
 function component() {
   return {
     template: `<div v-test="name"></div>`,
