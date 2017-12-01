@@ -119,7 +119,7 @@ Vue.use(VueTestAttribute, settings);
 |-------|----------|
 | `false` | `data-test` attributes will be added |
 | `true` | `data-test` attributes will *not* be added |
-| (not set) | Behavior based on value of `process.env.NODE_ENV === "production"` |
+| (not set) | Behavior is based on value of `process.env.NODE_ENV === "production"` |
 
 ## FAQ
 
