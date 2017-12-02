@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.0] - 2017-12-01
+### Added
+
+- Support for server side rendering
+
 ## [1.2.0] - 2017-11-30
 ### Added
 
