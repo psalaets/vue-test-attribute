@@ -7,7 +7,7 @@ Vue.use(plugin, {
   production: false
 });
 
-describe('options.production === false', () => {
+describe('settings.production === false', () => {
   it('adds attribute to element', () => {
     const wrapper = mount(component(), {
       propsData: {
