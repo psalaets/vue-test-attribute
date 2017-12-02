@@ -127,7 +127,6 @@ Vue.use(VueTestAttribute, settings);
 import VueTestAttribute from 'vue-test-attribute';
 import {createRenderer} from 'vue-server-renderer';
 
-// create renderer
 const renderer = createRenderer({
   directives: {
     // configure renderer with VueTestAttribute
