@@ -11,7 +11,7 @@ describe('server side rendering', () => {
       const instance = new Vue(component('address'));
       const renderer = createRenderer({
         directives: {
-          test: plugin.ssr
+          test: plugin.ssr()
         }
       });
 
@@ -28,7 +28,7 @@ describe('server side rendering', () => {
       const instance = new Vue(component(['address', 'address-1']));
       const renderer = createRenderer({
         directives: {
-          test: plugin.ssr
+          test: plugin.ssr()
         }
       });
 
@@ -45,7 +45,7 @@ describe('server side rendering', () => {
       const instance = new Vue(component(false));
       const renderer = createRenderer({
         directives: {
-          test: plugin.ssr
+          test: plugin.ssr()
         }
       });
 

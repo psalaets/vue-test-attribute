@@ -1,19 +1,30 @@
+import { isPrimitive } from "util";
+
 export default {
   install,
-  ssr
+  ssr: createSsr
 };
 
-function install(Vue, options = {}) {
-  const production = options.production !== undefined
-    ? options.production
-    : process.env.NODE_ENV === 'production';
-
+function install(Vue, settings = {}) {
+  const production = isProduction(settings);
   Vue.directive('test', createDirective(production));
 }
 
-function ssr(vnode, directiveMeta) {
-  const value = directiveMeta.value;
-  vnode.data.attrs['data-test'] = evaluateValue(value);
+function createSsr(settings = {}) {
+  const production = isProduction(settings);
+
+  return function ssr(vnode, directiveMeta) {
+    if (!production) {
+      const value = directiveMeta.value;
+      vnode.data.attrs['data-test'] = evaluateValue(value);
+    }
+  };
+}
+
+function isProduction(settings) {
+  return settings.production !== undefined
+    ? settings.production
+    : process.env.NODE_ENV === 'production';
 }
 
 function createDirective(production) {
