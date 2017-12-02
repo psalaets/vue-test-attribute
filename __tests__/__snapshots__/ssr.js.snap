@@ -5,3 +5,9 @@ exports[`server side rendering given a string value sets attribute to value 1`] 
 exports[`server side rendering given array value sets attribute to array contents separated by spaces 1`] = `<div data-test="address address-1"></div>`;
 
 exports[`server side rendering given false does not set attribute 1`] = `<div></div>`;
+
+exports[`server side rendering settings.production === false adds attribute to element 1`] = `<div data-test="address"></div>`;
+
+exports[`server side rendering settings.production === true does not add attribute to element 1`] = `<div></div>`;
+
+exports[`server side rendering settings.production not set uses process.env.NODE_ENV to determine production 1`] = `<div></div>`;
