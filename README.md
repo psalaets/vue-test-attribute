@@ -121,6 +121,23 @@ Vue.use(VueTestAttribute, settings);
 | `true` | `data-test` attributes will *not* be added |
 | (not set) | Behavior is based on value of `process.env.NODE_ENV === "production"` |
 
+## Server-side rendering
+
+```js
+import VueTestAttribute from 'vue-test-attribute';
+import {createRenderer} from 'vue-server-renderer';
+
+// create renderer
+const renderer = createRenderer({
+  directives: {
+    // configure renderer with VueTestAttribute
+    test: VueTestAttribute.ssr()
+  }
+});
+```
+
+`VueTestAttribute.ssr()` accepts an optional settings object. See above for details on settings.
+
 ## FAQ
 
 ### Q1: Why not just find elements by content/class/id/xpath in tests?
