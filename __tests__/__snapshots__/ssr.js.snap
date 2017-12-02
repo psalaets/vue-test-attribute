@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`server side rendering given a string value sets attribute to value 1`] = `<div data-test="address"></div>`;
+
+exports[`server side rendering given array value sets attribute to array contents separated by spaces 1`] = `<div data-test="address address-1"></div>`;
+
+exports[`server side rendering given false does not set attribute 1`] = `<div></div>`;

@@ -5,8 +5,9 @@
   "main": "commonjs/index.js",
   "module": "es/index.js",
   "scripts": {
-    "test": "npm run test:main && npm run test:prod-flag",
+    "test": "npm run test:main && npm run test:ssr && npm run test:prod-flag",
     "test:main": "jest __tests__/main.js",
+    "test:ssr": "jest __tests__/ssr.js",
     "test:prod-flag": "jest __tests__/production-flag-true.js && jest __tests__/production-flag-false.js && jest __tests__/production-flag-not-set.js",
     "prebuild": "npm run clean",
     "build": "npm run build:commonjs && npm run build:es",
@@ -24,7 +25,11 @@
     "commonjs",
     "es"
   ],
-  "keywords": ["vue", "test", "attribute"],
+  "keywords": [
+    "vue",
+    "test",
+    "attribute"
+  ],
   "author": "Paul Salaets <psalaets@gmail.com>",
   "license": "MIT",
   "devDependencies": {
@@ -32,9 +37,11 @@
     "babel-jest": "^21.2.0",
     "babel-preset-env": "^1.6.1",
     "jest": "^21.2.1",
+    "jest-serializer-vue": "^0.3.0",
     "rimraf": "^2.6.2",
-    "vue": "^2.5.8",
-    "vue-template-compiler": "^2.5.8",
+    "vue": "^2.5.9",
+    "vue-server-renderer": "^2.5.9",
+    "vue-template-compiler": "^2.5.9",
     "vue-test-utils": "^1.0.0-beta.6"
   }
 }

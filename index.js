@@ -1,5 +1,6 @@
 export default {
-  install
+  install,
+  ssr
 };
 
 function install(Vue, options = {}) {
@@ -8,6 +9,11 @@ function install(Vue, options = {}) {
     : process.env.NODE_ENV === 'production';
 
   Vue.directive('test', createDirective(production));
+}
+
+function ssr(vnode, directiveMeta) {
+  const value = directiveMeta.value;
+  vnode.data.attrs['data-test'] = evaluateValue(value);
 }
 
 function createDirective(production) {
