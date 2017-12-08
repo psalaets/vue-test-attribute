@@ -1,5 +1,3 @@
-import { isPrimitive } from "util";
-
 export default {
   install,
   ssr: createSsr
