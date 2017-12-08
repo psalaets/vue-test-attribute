@@ -115,10 +115,10 @@ Vue.use(VueTestAttribute, settings);
 
 ### settings.production
 
-| Value | Behavior |
-|-------|----------|
-| `false` | `data-test` attributes will be added |
-| `true` | `data-test` attributes will *not* be added |
+| Value     | Behavior                                                              |
+|-----------|-----------------------------------------------------------------------|
+| `false`   | `data-test` attributes will be added                                  |
+| `true`    | `data-test` attributes will *not* be added                            |
 | (not set) | Behavior is based on value of `process.env.NODE_ENV === "production"` |
 
 ## Server-side rendering
