@@ -1,16 +1,22 @@
-import Vue from 'vue';
-import {mount} from 'vue-test-utils';
+
+import {createLocalVue, mount} from 'vue-test-utils';
 
 import plugin from '../index';
 
-Vue.use(plugin);
+let localVue;
+
+beforeEach(() => {
+  localVue = createLocalVue();
+  localVue.use(plugin);
+});
 
 describe('given a string value', () => {
   it('sets attribute to value', () => {
     const wrapper = mount(component(), {
       propsData: {
         name: 'person'
-      }
+      },
+      localVue
     });
 
     expect(wrapper.element.getAttribute('data-test')).toBe('person');
@@ -20,7 +26,8 @@ describe('given a string value', () => {
     const wrapper = mount(component(), {
       propsData: {
         name: 'person'
-      }
+      },
+      localVue
     });
 
     wrapper.setProps({
@@ -36,7 +43,8 @@ describe('given array value', () => {
     const wrapper = mount(component(), {
       propsData: {
         name: ['person', 'selected']
-      }
+      },
+      localVue
     });
 
     expect(wrapper.element.getAttribute('data-test')).toBe('person selected');
@@ -46,7 +54,8 @@ describe('given array value', () => {
     const wrapper = mount(component(), {
       propsData: {
         name: ['person']
-      }
+      },
+      localVue
     });
 
     wrapper.setProps({
@@ -62,7 +71,8 @@ describe('given false', () => {
     const wrapper = mount(component(), {
       propsData: {
         name: false
-      }
+      },
+      localVue
     });
 
     expect(wrapper.element.hasAttribute('data-test')).toBe(false);
@@ -72,7 +82,8 @@ describe('given false', () => {
     const wrapper = mount(component(), {
       propsData: {
         name: 'person'
-      }
+      },
+      localVue
     });
 
     wrapper.setProps({
@@ -96,7 +107,9 @@ describe('directly on a component', () => {
       }
     };
 
-    const wrapper = mount(ParentComponent);
+    const wrapper = mount(ParentComponent, {
+      localVue
+    });
 
     expect(wrapper.element.getAttribute('data-test')).toBe('address');
   });

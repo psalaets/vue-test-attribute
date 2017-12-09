@@ -1,21 +1,68 @@
-import Vue from 'vue';
-import { mount } from 'vue-test-utils';
+import { createLocalVue, mount } from 'vue-test-utils';
 
 import plugin from '../index';
 
-Vue.use(plugin, {
-  production: true
-});
+let localVue;
 
-describe('settings.production === true', () => {
-  it('does not add attribute to element', () => {
-    const wrapper = mount(component(), {
-      propsData: {
-        name: 'person'
-      }
+describe('settings.production', () => {
+  describe('set to true', () => {
+    beforeEach(() => {
+      localVue = createLocalVue();
+      localVue.use(plugin, {
+        production: true
+      });
     });
 
-    expect(wrapper.element.hasAttribute('data-test')).toBe(false);
+    it('does not add attribute to element', () => {
+      const wrapper = mount(component(), {
+        propsData: {
+          name: 'person'
+        },
+        localVue
+      });
+
+      expect(wrapper.element.hasAttribute('data-test')).toBe(false);
+    });
+  });
+
+  describe('set to false', () => {
+    beforeEach(() => {
+      localVue = createLocalVue();
+      localVue.use(plugin, {
+        production: false
+      });
+    });
+
+    it('adds attribute to element', () => {
+      const wrapper = mount(component(), {
+        propsData: {
+          name: 'person'
+        },
+        localVue
+      });
+
+      expect(wrapper.element.hasAttribute('data-test')).toBe(true);
+    });
+  });
+
+  describe('not set', () => {
+    beforeEach(() => {
+      process.env.NODE_ENV = 'production';
+
+      localVue = createLocalVue();
+      localVue.use(plugin, {});
+    });
+
+    it('uses process.env.NODE_ENV to determine production', () => {
+      const wrapper = mount(component(), {
+        propsData: {
+          name: 'person'
+        },
+        localVue
+      });
+
+      expect(wrapper.element.hasAttribute('data-test')).toBe(false);
+    });
   });
 });
 
