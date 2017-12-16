@@ -5,7 +5,7 @@
   "main": "commonjs/index.js",
   "module": "es/index.js",
   "scripts": {
-    "test": "jest",
+    "test": "BABEL_ENV=test jest",
     "prebuild": "npm run clean",
     "build": "npm run build:commonjs && npm run build:es",
     "build:commonjs": "BABEL_ENV=commonjs babel index.js --out-dir commonjs",
